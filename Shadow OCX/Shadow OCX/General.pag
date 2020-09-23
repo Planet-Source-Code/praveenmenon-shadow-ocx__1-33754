@@ -1,0 +1,115 @@
+VERSION 5.00
+Begin VB.PropertyPage General 
+   BackColor       =   &H80000009&
+   Caption         =   "General"
+   ClientHeight    =   3495
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   5925
+   PaletteMode     =   0  'Halftone
+   ScaleHeight     =   3495
+   ScaleWidth      =   5925
+   Begin VB.CommandButton Command1 
+      Caption         =   "Hint"
+      Height          =   375
+      Left            =   4965
+      TabIndex        =   5
+      Top             =   2880
+      Width           =   735
+   End
+   Begin VB.TextBox txtyOffsetPos 
+      Appearance      =   0  'Flat
+      Height          =   330
+      Left            =   3000
+      TabIndex        =   2
+      Top             =   1620
+      Width           =   2700
+   End
+   Begin VB.TextBox txtxOffsetPos 
+      Appearance      =   0  'Flat
+      Height          =   330
+      Left            =   3000
+      TabIndex        =   1
+      Top             =   735
+      Width           =   2700
+   End
+   Begin VB.CheckBox chkMoveShadow 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "MoveShadow"
+      Height          =   285
+      Left            =   3000
+      TabIndex        =   0
+      Top             =   2355
+      Width           =   2700
+   End
+   Begin VB.Shape Shape1 
+      Height          =   3615
+      Left            =   0
+      Top             =   0
+      Width           =   6015
+   End
+   Begin VB.Image Image1 
+      Height          =   3000
+      Left            =   360
+      Picture         =   "General.pgx":0000
+      Top             =   240
+      Width           =   2250
+   End
+   Begin VB.Label lblyOffsetPos 
+      BackStyle       =   0  'Transparent
+      Caption         =   "yOffsetPos:"
+      Height          =   240
+      Left            =   3000
+      TabIndex        =   4
+      Top             =   1380
+      Width           =   2700
+   End
+   Begin VB.Label lblxOffsetPos 
+      BackStyle       =   0  'Transparent
+      Caption         =   "xOffsetPos:"
+      Height          =   240
+      Left            =   3000
+      TabIndex        =   3
+      Top             =   480
+      Width           =   2700
+   End
+End
+Attribute VB_Name = "General"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+Private Sub Command1_Click()
+MsgBox "You can assign Positive and Negative numbers to xOffsetPos and yOffsetPos properties" _
+        & vbCrLf _
+        & "This aids in positioning the shadow to topleft or bottom right corners of the parent form" _
+        & vbCrLf _
+        & "Positive numbers move the shadow to the right and down," _
+        & vbCrLf _
+        & "Negative numbers move the shadow to the left and top", vbInformation
+End Sub
+
+Private Sub txtyOffsetPos_Change()
+    Changed = True
+End Sub
+
+Private Sub txtxOffsetPos_Change()
+    Changed = True
+End Sub
+
+
+Private Sub chkMoveShadow_Click()
+    Changed = True
+End Sub
+
+Private Sub PropertyPage_ApplyChanges()
+    SelectedControls(0).yOffsetPos = txtyOffsetPos.Text
+    SelectedControls(0).xOffsetPos = txtxOffsetPos.Text
+    SelectedControls(0).MoveShadow = (chkMoveShadow.Value = vbChecked)
+End Sub
+
+Private Sub PropertyPage_SelectionChanged()
+    txtyOffsetPos.Text = SelectedControls(0).yOffsetPos
+    txtxOffsetPos.Text = SelectedControls(0).xOffsetPos
+    chkMoveShadow.Value = (SelectedControls(0).MoveShadow And vbChecked)
+End Sub

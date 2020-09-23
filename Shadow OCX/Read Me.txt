@@ -1,0 +1,26 @@
+Translucency OCX - V1.0
+
+credits
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Unknown Author for the original idea.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Usage
+1) Add the usercontrol, the shadowform and the ShadowMdl to y'r project.
+2) Place an Instance of the usercontrol in the Parent Form.
+3) The Control is Named Shadow1 by default.
+4) call Shadow1.showShadow in Forms' Load event.
+5) Close the shadow with Shadow1.closeShadow in the Forms' unload event.
+6) Use the control's Property Page to change look and feel of the shadow.
+6) Run. (Not from your chair...)
+
+guys, pls report the bugs...
+i guess i need feedback to do more work...
+if the source gave u some spark of ideas or taught you new things, i consider the work was not futile...
+also if u think this ain't that bad for a beginner, pls vote for me...
+
+thanks and luv,
+Praveen
+
+Praveenc_1999@yahoo.com
